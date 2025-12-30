@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Catppuccin Mocha Design System */
+
+@layer base {
+  :root {
+    /* Catppuccin Mocha palette */
+    --ctp-base: 232 23% 15%;
+    --ctp-mantle: 233 23% 12%;
+    --ctp-surface0: 233 20% 19%;
+    --ctp-surface1: 234 18% 24%;
+    --ctp-surface2: 233 17% 29%;
+    --ctp-text: 227 70% 87%;
+    --ctp-subtext: 228 39% 70%;
+    --ctp-green: 115 54% 76%;
+    --ctp-teal: 170 57% 73%;
+    --ctp-lavender: 232 97% 85%;
+    --ctp-blue: 217 92% 76%;
+    --ctp-mauve: 267 84% 81%;
+
+    /* Map to semantic tokens */
+    --background: var(--ctp-base);
+    --foreground: var(--ctp-text);
+
+    --card: var(--ctp-surface0);
+    --card-foreground: var(--ctp-text);
+
+    --popover: var(--ctp-surface0);
+    --popover-foreground: var(--ctp-text);
+
+    --primary: var(--ctp-green);
+    --primary-foreground: var(--ctp-base);
+
+    --secondary: var(--ctp-surface1);
+    --secondary-foreground: var(--ctp-text);
+
+    --muted: var(--ctp-surface0);
+    --muted-foreground: var(--ctp-subtext);
+
+    --accent: var(--ctp-teal);
+    --accent-foreground: var(--ctp-base);
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: var(--ctp-text);
+
+    --border: var(--ctp-surface1);
+    --input: var(--ctp-surface1);
+    --ring: var(--ctp-lavender);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: var(--ctp-mantle);
+    --sidebar-foreground: var(--ctp-text);
+    --sidebar-primary: var(--ctp-green);
+    --sidebar-primary-foreground: var(--ctp-base);
+    --sidebar-accent: var(--ctp-surface0);
+    --sidebar-accent-foreground: var(--ctp-text);
+    --sidebar-border: var(--ctp-surface1);
+    --sidebar-ring: var(--ctp-lavender);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-ubuntu antialiased;
+  }
+}
+
+@layer utilities {
+  .hover-scale {
+    @apply transition-transform duration-200 ease-out hover:scale-110;
+  }
+
+  .text-ctp-green {
+    color: hsl(var(--ctp-green));
+  }
+
+  .text-ctp-teal {
+    color: hsl(var(--ctp-teal));
+  }
+
+  .text-ctp-lavender {
+    color: hsl(var(--ctp-lavender));
+  }
+
+  .text-ctp-blue {
+    color: hsl(var(--ctp-blue));
+  }
+
+  .text-ctp-mauve {
+    color: hsl(var(--ctp-mauve));
+  }
+
+  .bg-ctp-base {
+    background-color: hsl(var(--ctp-base));
+  }
+
+  .bg-ctp-surface0 {
+    background-color: hsl(var(--ctp-surface0));
+  }
+
+  .bg-ctp-surface1 {
+    background-color: hsl(var(--ctp-surface1));
+  }
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fade-in 1s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fade-in 1s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fade-in 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-4 {
+  animation: fade-in 1s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.icon-hover {
+  @apply transition-all duration-400 ease-out;
+}
+
+.icon-hover:hover {
+  animation: icon-spin 0.4s ease-out;
+}
