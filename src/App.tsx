@@ -1,37 +1,25 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import SocialLinks from "@/components/SocialLinks";
+import Skills from "@/components/Skills";
+import WhatIsTazDoing from "@/components/WhatIsTazDoing";
+import Footer from "@/components/Footer";
 
-import Index from "./pages/Index";
-import Blog from "./pages/blog";
-import Projects from "./pages/Projects";
-import NotFound from "./pages/NotFound";
-import { blogRoutes } from "./pages/blog/posts";
+const Index = () => {
+  return (
+    <div className="min-h-screen flex flex-col justify-center items-center px-4">
+      <Navbar />
 
-const queryClient = new QueryClient();
+      <main className="flex flex-col items-center justify-center flex-1 pt-20">
+        <Hero />
+        <SocialLinks />
+        <Skills />
+      </main>
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/projects" element={<Projects />} />
+      <WhatIsTazDoing />
+      <Footer />
+    </div>
+  );
+};
 
-          {blogRoutes.map((route) => (
-            <Route key={route.path} path={route.path} element={route.element} />
-          ))}
-
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+export default Index;
